@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<session>
+  <settings>
+    <general gameType="React" shuffle="true" isRed = "true"/>
+    <react duration="1" guessTimeLimit="0.125" responseTimeLimit =".8" />
+    <randomPositionRange xMin ="0" xMax="100" yMin="0" yMax="100"/>
+  </settings>
+  <trials>
+    <trial delay="0.2" position ="random"/>
+    <trial delay="0.3" position ="10 20"/>
+    <trial delay="0.3" position ="random"/>
+    <trial delay="0.5" position ="50 50"/>
+    <trial delay="0.5" position ="random"/>
+    <trial delay="0.5" position ="90 100"/>
+    <trial delay="1.0" position ="random"/>
+    <trial delay="1.0" position ="10 10"/>
+    <trial delay="1.0" position ="random"/>
+  </trials>
+</session>
