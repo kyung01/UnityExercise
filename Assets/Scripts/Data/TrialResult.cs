@@ -7,13 +7,14 @@ public class TrialResult
 {
 	const string ATTRIBUTE_SUCCESS = "success";
 	const string ATTRIBUTE_RESPONSE_TIME = "responseTime";
-	const string ATTRIBUTE_ACCURACY = "accuracy";
+    const string ATTRIBUTE_ACCURACY = "accuracy";
+    const string ATTRIBUTE_IS_RED = "red";
 
 
-	/// <summary>
-	/// A reference to the Trial data.
-	/// </summary>
-	public Trial trial = null;
+    /// <summary>
+    /// A reference to the Trial data.
+    /// </summary>
+    public Trial trial = null;
 	/// <summary>
 	/// True if the player responded successfully.
 	/// This includes NOT responding during noGo trials.
@@ -26,20 +27,27 @@ public class TrialResult
 	/// </summary>
 	public float responseTime = 0;
 
-	/// <summary>
-	/// The accuracy of the player's response. 
-	/// The calculation for this will vary according to the gametype.
-	/// Measured from [0.0 - 1.0]
-	/// </summary>
-	public float accuracy = 0;
+    /// <summary>
+    /// The accuracy of the player's response. 
+    /// The calculation for this will vary according to the gametype.
+    /// Measured from [0.0 - 1.0]
+    /// </summary>
+    public float accuracy = 0;
+
+    /// <summary>
+    /// Color of stimulus.
+    /// When red stimulus is displayed, player should not enter any input.
+    /// Any input from the player is incorrect when red stimlus is displayed.
+    /// </summary>
+    public bool isRed = false;
 
 
-	#region ACCESSORS
+    #region ACCESSORS
 
-	/// <summary>
-	/// Returns True if the player responded during the trial.
-	/// </summary>
-	public bool PlayerResponded
+    /// <summary>
+    /// Returns True if the player responded during the trial.
+    /// </summary>
+    public bool PlayerResponded
 	{
 		get
 		{
@@ -60,6 +68,7 @@ public class TrialResult
 	{
 		XMLUtil.CreateAttribute(ATTRIBUTE_SUCCESS, success.ToString(), ref elem);
 		XMLUtil.CreateAttribute(ATTRIBUTE_RESPONSE_TIME, responseTime.ToString(), ref elem);
-		XMLUtil.CreateAttribute(ATTRIBUTE_ACCURACY, accuracy.ToString(), ref elem);
-	}
+        XMLUtil.CreateAttribute(ATTRIBUTE_ACCURACY, accuracy.ToString(), ref elem);
+        XMLUtil.CreateAttribute(ATTRIBUTE_IS_RED, isRed.ToString(), ref elem);
+    }
 }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <session>
   <settings>
-    <general gameType="React" shuffle="true" xMin ="0" xMax="100" yMin="0" yMax="100"/>
+    <general gameType="React" shuffle="true" xMin ="0" xMax="100" yMin="-300" yMax="300"/>
     <react duration="1" guessTimeLimit="0.125" responseTimeLimit =".8" />
   </settings>
   <trials>

@@ -22,6 +22,11 @@ public class React2 : React
     /// Reponse is displayed when the player incorrectly give input when red stimulus is displayed.
     /// </summary>
     const string RESPONSE_WRONG = "Do not press anything!";
+    /// <summary>
+    /// The feedback for wrong input when red stimulus is displayed is magenta.
+    /// The default red color for RESPONSE_COLOR_BAD is obscured because the stimulus is red as well.
+    /// </summary>
+    protected Color RESPONSE_COLOR_BAD = Color.magenta;
 
     /// <summary>
     /// Displays the Stimulus for a specified duration.
@@ -70,6 +75,7 @@ public class React2 : React
         //Stimulus is red. New implementation is required.
         TrialResult r = new TrialResult(t);
         r.responseTime = time;
+        r.isRed = true;
         if (time == 0)
         {
             // No response.

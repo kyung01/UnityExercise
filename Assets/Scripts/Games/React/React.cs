@@ -19,7 +19,7 @@ public class React : GameBase
 	const string RESPONSE_TIMEOUT = "Missed it!";
 	const string RESPONSE_SLOW = "Too Slow!";
     protected Color RESPONSE_COLOR_GOOD = Color.green;
-    protected Color RESPONSE_COLOR_BAD = Color.red;
+    Color RESPONSE_COLOR_BAD = Color.red;
 
 	/// <summary>
 	/// A reference to the UI canvas so we can instantiate the feedback text.
