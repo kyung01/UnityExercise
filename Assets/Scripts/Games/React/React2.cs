@@ -29,4 +29,6 @@ public class React2 : React
 
         yield break;
     }
+    //protected override void AddResult(Trial t, float time)
+    
 }

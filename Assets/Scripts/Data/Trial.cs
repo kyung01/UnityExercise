@@ -54,6 +54,21 @@ public class Trial
     {
         XMLUtil.ParseAttribute(n, ATTRIBUTE_DELAY, ref delay);
         XMLUtil.ParseAttribute(n, ATTRIBUTE_IS_RED, ref isRed, true);
+        string position="";
+        if(XMLUtil.ParseAttribute(n, ATTRIBUTE_POSITION, ref position, true))
+        {
+            if (position == "random")
+            {
+                x = Random.Range(data.xMin, data.xMax);
+                y = Random.Range(data.yMin, data.yMax);
+            }
+            else
+            {
+                string[] xy = position.Split(' ');
+                x = float.Parse(xy[0]);
+                y = float.Parse(xy[1]);
+            }
+        }
     }
 
 	
