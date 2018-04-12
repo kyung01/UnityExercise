@@ -54,9 +54,13 @@ If you do not define position, it will use the default 0 value for both x and y.
 You could define position to be randomly chosen by the game.
 
 ex) <trial delay="0.2" /> //Your default implementation. The coordinates for x and y will be 0 and 0 and stimulus will be white.
+
 ex) <trial delay="0.2" position ="11 45" /> //The coordinates for x and y will be 11 for x, and 45 for y.
+
 ex) <trial delay="0.2" isRed = "true" /> //Your stimlus will be red now
+
 ex) <trial delay="0.2" isRed = "true" position ="random"/> //Your stimlus will be red and random
+
 ex) <trial delay="0.2" isRed = "true" position ="11 45"/> //Your stimlus will be red and will be located at position of 11 x coordinate and 45 y coordinate.
 
 Trial and SessionData classes are most heavily edited to allow new data (different color and position of stimulus) to be applied. However older format of xml sheet is still accepted.
