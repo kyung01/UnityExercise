@@ -59,9 +59,12 @@ ex)```<trial delay="0.2" position ="11 45" />``` //The coordinates for x and y w
 
 ex)```<trial delay="0.2" isRed = "true" />``` //Your stimlus will be red now
 
-ex)```<trial delay="0.2" isRed = "true" position ="random"/>``` //Your stimlus will be red and random
+ex)```<trial delay="0.2" isRed = "true" position ="random"/>``` //Your stimlus will be red and randomly positioned.
 
 ex)```<trial delay="0.2" isRed = "true" position ="11 45"/>``` //Your stimlus will be red and will be located at position of 11 x coordinate and 45 y coordinate.
+
+For the range of random position for the stimlus, you need to define it under general insdie your xml sheet.
+ex)```<general gameType="React" shuffle="true" xMin ="0" xMax="100" yMin="-300" yMax="300"/>``` In this example, your random range for x coordinate will be 0 to 100. Your random range for y coordiate will be -300 to 300.
 
 Trial and SessionData classes are most heavily edited to allow new data (different color and position of stimulus) to be applied. However older format of xml sheet is still accepted.
 React class is lightly modified. Some of its variables' access level has been changed from private to protected to allow an extended class React2 to access them.
