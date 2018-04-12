@@ -75,14 +75,14 @@ public class SessionData
 	#endregion
 
 
-	public virtual void ParseElement(XmlElement elem)
+	public void ParseElement(XmlElement elem)
 	{
 		XMLUtil.ParseAttribute(elem, ATTRIBUTE_GAMETYPE, ref gameType);
 		XMLUtil.ParseAttribute(elem, ATTRIBUTE_SHUFFLE, ref shuffleTrials, true);
 	}
 
 	
-	public virtual void WriteOutputData(ref XElement elem)
+	public void WriteOutputData(ref XElement elem)
 	{
 		XMLUtil.CreateAttribute(ATTRIBUTE_GAMETYPE, gameType.ToString(), ref elem);
 		XMLUtil.CreateAttribute(ATTRIBUTE_SHUFFLE, shuffleTrials.ToString(), ref elem);
