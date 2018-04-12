@@ -53,7 +53,7 @@ You can now define whether the stimlus will be red or white. Red stimlus require
 If you do not define position, it will use the default 0 value for both x and y.
 You could define position to be randomly chosen by the game.
 
-ex)'''<trial delay="0.2" />''' //Your default implementation. The coordinates for x and y will be 0 and 0 and stimulus will be white.
+ex)```<trial delay="0.2" />``` //Your default implementation. The coordinates for x and y will be 0 and 0 and stimulus will be white.
 
 ex)<trial delay="0.2" position ="11 45" /> //The coordinates for x and y will be 11 for x, and 45 for y.
 
