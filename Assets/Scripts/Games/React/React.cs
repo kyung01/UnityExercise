@@ -81,7 +81,7 @@ public class React : GameBase
 		yield return new WaitForSeconds(t.delay);
 
 		StartInput();
-		stim.SetActive(true);
+        stim.SetActive(true);
 
 		yield return new WaitForSeconds(((ReactTrial)t).duration);
 		stim.SetActive(false);

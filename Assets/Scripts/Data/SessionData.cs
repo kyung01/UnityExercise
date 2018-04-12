@@ -12,13 +12,17 @@ public class SessionData
 {
 	// General Attributes.
 	const string ATTRIBUTE_GAMETYPE = "gameType";
-	const string ATTRIBUTE_SHUFFLE = "shuffle";
+    const string ATTRIBUTE_SHUFFLE = "shuffle";
+    const string ATTRIBUTE_X_MIN = "xMin";
+    const string ATTRIBUTE_X_MAX = "xMax";
+    const string ATTRIBUTE_Y_MIN = "yMin";
+    const string ATTRIBUTE_Y_MAX = "yMax";
 
 
-	/// <summary>
-	/// The filename of the Session file.
-	/// </summary>
-	public string fileName = string.Empty;
+    /// <summary>
+    /// The filename of the Session file.
+    /// </summary>
+    public string fileName = string.Empty;
 	/// <summary>
 	/// The GameType for this game, as specified in the session file.
 	/// </summary>
@@ -31,14 +35,30 @@ public class SessionData
 	/// True if the session output has been successfully written to an Xml document.
 	/// </summary>
 	public bool outputWritten = false;
-	/// <summary>
-	/// Indicates that the Trials have been shuffled.
-	/// </summary>
-	public bool shuffleTrials = false;
-	/// <summary>
-	/// Contains data specific to the GameType.
-	/// </summary>
-	public GameData gameData = null;
+    /// <summary>
+    /// Indicates that the Trials have been shuffled.
+    /// </summary>
+    public bool shuffleTrials = false;
+    /// <summary>
+    /// The lowest value of random x coordinate for the trial square. 
+    /// </summary>
+    public float xMin = 0;
+    /// <summary>
+    /// The highest value of random x coordinate for the trial square.
+    /// </summary>
+    public float xMax = 0;
+    /// <summary>
+    /// The lowest value of random y coordinate for the trial square. 
+    /// </summary>
+    public float yMin = 0;
+    /// <summary>
+    /// The highest value of random y coordinate for the trial square.
+    /// </summary>
+    public float yMax = 0;
+    /// <summary>
+    /// Contains data specific to the GameType.
+    /// </summary>
+    public GameData gameData = null;
 	/// <summary>
 	/// Contains data for each trial that will be used by the game.
 	/// </summary>
@@ -78,13 +98,21 @@ public class SessionData
 	public void ParseElement(XmlElement elem)
 	{
 		XMLUtil.ParseAttribute(elem, ATTRIBUTE_GAMETYPE, ref gameType);
-		XMLUtil.ParseAttribute(elem, ATTRIBUTE_SHUFFLE, ref shuffleTrials, true);
-	}
+        XMLUtil.ParseAttribute(elem, ATTRIBUTE_SHUFFLE, ref shuffleTrials, true);
+        XMLUtil.ParseAttribute(elem, ATTRIBUTE_X_MIN, ref xMin, true);
+        XMLUtil.ParseAttribute(elem, ATTRIBUTE_X_MAX, ref xMax, true);
+        XMLUtil.ParseAttribute(elem, ATTRIBUTE_Y_MIN, ref yMin, true);
+        XMLUtil.ParseAttribute(elem, ATTRIBUTE_Y_MAX, ref yMax, true);
+    }
 
 	
 	public void WriteOutputData(ref XElement elem)
 	{
+        XMLUtil.CreateAttribute(ATTRIBUTE_Y_MAX, yMax.ToString(), ref elem);
+        XMLUtil.CreateAttribute(ATTRIBUTE_Y_MIN, yMin.ToString(), ref elem);
+        XMLUtil.CreateAttribute(ATTRIBUTE_X_MAX, xMax.ToString(), ref elem);
+        XMLUtil.CreateAttribute(ATTRIBUTE_X_MIN, xMin.ToString(), ref elem);
+        XMLUtil.CreateAttribute(ATTRIBUTE_SHUFFLE, shuffleTrials.ToString(), ref elem);
 		XMLUtil.CreateAttribute(ATTRIBUTE_GAMETYPE, gameType.ToString(), ref elem);
-		XMLUtil.CreateAttribute(ATTRIBUTE_SHUFFLE, shuffleTrials.ToString(), ref elem);
-	}
+    }
 }

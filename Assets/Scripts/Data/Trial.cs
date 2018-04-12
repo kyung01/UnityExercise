@@ -25,15 +25,21 @@ public class Trial
     /// A delay before the Trial begins.
     /// </summary>
     public float delay = 0;
-
     /// <summary>
     /// Determines whether the trial is red.
-    /// If the trial is red, game proceeds to "not responding to input" as the correct answer from user.
+    /// If the trial is red, game proceeds to take "not responding to input" as the correct response from user.
     /// </summary>
     public bool isRed = false;
+    /// <summary>
+    /// x coordinate of the trial square.
+    /// </summary>
+    public float x = 0;
+    /// <summary>
+    /// y coordinate of the trial square.
+    /// </summary>
+    public float y = 0;
 
-
-	public Trial(SessionData data, XmlElement n)
+    public Trial(SessionData data, XmlElement n)
 	{
 		ParseGameSpecificVars(n, data);
 	}
@@ -55,7 +61,9 @@ public class Trial
 	/// Writes any tracked variables to the given XElement.
 	/// </summary>
 	public virtual void WriteOutputData(ref XElement elem)
-	{
-		XMLUtil.CreateAttribute(ATTRIBUTE_DELAY, delay.ToString(), ref elem);
-	}
+    {
+        XMLUtil.CreateAttribute(ATTRIBUTE_POSITION, (x+" "+y).ToString(), ref elem);
+        XMLUtil.CreateAttribute(ATTRIBUTE_IS_RED, isRed.ToString(), ref elem);
+        XMLUtil.CreateAttribute(ATTRIBUTE_DELAY, delay.ToString(), ref elem);
+    }
 }
