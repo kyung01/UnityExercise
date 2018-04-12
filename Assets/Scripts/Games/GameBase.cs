@@ -81,6 +81,13 @@ public abstract class GameBase : MonoBehaviour
 	}
 
 	#endregion
+    /// <summary>
+    /// Used by derived class (GameBase2) to call OnStart event.
+    /// </summary>
+    protected void RaiseOnStart()
+    {
+        OnStart();
+    }
 	
 
 	/// <summary>
