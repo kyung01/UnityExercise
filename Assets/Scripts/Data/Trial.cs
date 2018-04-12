@@ -16,16 +16,28 @@ public class Trial
 	public const string ATTRIBUTE_IS_GO = "isGo";
 	public const string ATTRIBUTE_DELAY = "delay";
 
-	#endregion
+    #endregion
 
 
-	/// <summary>
-	/// A delay before the Trial begins.
-	/// </summary>
-	public float delay = 0;
+    /// <summary>
+    /// A delay before the Trial begins.
+    /// </summary>
+    public float delay = 0;
+    /// <summary>
+    /// Whether the trial is red colored.
+    /// </summary>
+    public bool isRed = false;
+    /// <summary>
+    /// X coordinate of this trial
+    /// </summary>
+    public float x = 0;
+    /// <summary>
+    /// Y coordinate of this trial
+    /// </summary>
+    public float y = 0;
 
 
-	public Trial(SessionData data, XmlElement n)
+    public Trial(SessionData data, XmlElement n)
 	{
 		ParseGameSpecificVars(n, data);
 	}
