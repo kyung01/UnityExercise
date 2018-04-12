@@ -14,15 +14,23 @@ public class Trial
 	#region ATTRIBUTES
 
 	public const string ATTRIBUTE_IS_GO = "isGo";
-	public const string ATTRIBUTE_DELAY = "delay";
+    public const string ATTRIBUTE_DELAY = "delay";
+    public const string ATTRIBUTE_IS_RED = "isRed";
+    public const string ATTRIBUTE_POSITION = "position";
 
-	#endregion
+    #endregion
 
 
-	/// <summary>
-	/// A delay before the Trial begins.
-	/// </summary>
-	public float delay = 0;
+    /// <summary>
+    /// A delay before the Trial begins.
+    /// </summary>
+    public float delay = 0;
+
+    /// <summary>
+    /// Determines whether the trial is red.
+    /// If the trial is red, game proceeds to "not responding to input" as the correct answer from user.
+    /// </summary>
+    public bool isRed = false;
 
 
 	public Trial(SessionData data, XmlElement n)
@@ -37,9 +45,10 @@ public class Trial
 	/// Used when parsing a Trial that IS defined in the Session file.
 	/// </summary>
 	public virtual void ParseGameSpecificVars(XmlNode n, SessionData data)
-	{
-		XMLUtil.ParseAttribute(n, ATTRIBUTE_DELAY, ref delay);
-	}
+    {
+        XMLUtil.ParseAttribute(n, ATTRIBUTE_DELAY, ref delay);
+        XMLUtil.ParseAttribute(n, ATTRIBUTE_IS_RED, ref isRed, true);
+    }
 
 	
 	/// <summary>
