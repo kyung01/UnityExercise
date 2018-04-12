@@ -47,4 +47,22 @@ In this game you should be able to:
 
 # Submission
 
-For your submission, extend this README documenting the rules of the new game, how the code works, how scoring works in the new game, and any other interesting or useful things you can think of for us to take into consideration. Then zip the git repository and send it to us.
+There is a new scene called "Second" with green background color. Please proceed to play the "second" scene to test new implementation of the game.
+You can now define the position of stimulus in your xml sheet.
+You can now define whether the stimlus will be red or white. Red stimlus requires player to not enter any input. Any input during red stimulus is displayed is regarded as wrong answer.
+If you do not define position, it will use the default 0 value for both x and y.
+You could define position to be randomly chosen by the game.
+
+ex) <trial delay="0.2" /> //Your default implementation. The coordinates for x and y will be 0 and 0 and stimulus will be white.
+ex) <trial delay="0.2" position ="11 45" /> //The coordinates for x and y will be 11 for x, and 45 for y.
+ex) <trial delay="0.2" isRed = "true" /> //Your stimlus will be red now
+ex) <trial delay="0.2" isRed = "true" position ="random"/> //Your stimlus will be red and random
+ex) <trial delay="0.2" isRed = "true" position ="11 45"/> //Your stimlus will be red and will be located at position of 11 x coordinate and 45 y coordinate.
+
+Trial and SessionData classes are most heavily edited to allow new data (different color and position of stimulus) to be applied. However older format of xml sheet is still accepted.
+React class is lightly modified. Some of its variables' access level has been changed from private to protected to allow an extended class React2 to access them.
+React2 class is implemented to handle new version of the game. React2 extends from React class. React2 is almost identical to React class except when handling red stimlus and processing player's input when the game needs to "AddResult".
+
+# Important
+
+If you want to play the new version of the game, you must use React2. The original React class is left intact as it originally was to allow easy backtrack.
