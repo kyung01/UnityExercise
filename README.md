@@ -47,6 +47,9 @@ In this game you should be able to:
 
 # Submission
 
+New implementation features red stimulus!
+If the player provides any input while red stimulus is displayed, player fails the test. Player must not provide any input during red stimulus.
+
 There is a new scene called "Second" with green background color. Please proceed to play the "second" scene to test new implementation of the game.
 You can now define the position of stimulus in your xml sheet.
 You can now define whether the stimlus will be red or white. Red stimlus requires player to not enter any input. Any input during red stimulus is displayed is regarded as wrong answer.
