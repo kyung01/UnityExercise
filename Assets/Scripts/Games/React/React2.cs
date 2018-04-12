@@ -12,6 +12,8 @@ using System.Collections.Generic;
 /// </summary>
 public class React2 : React
 {
+    const string INSTRUCTIONS_RED = "Do not press <color=cyan>Spacebar</color>.";
+
     protected override IEnumerator DisplayStimulus(Trial t)
     {
         GameObject stim = stimulus;
@@ -21,6 +23,16 @@ public class React2 : React
 
         StartInput();
         stim.GetComponent<RectTransform>().localPosition = new Vector3(t.x, t.y, 0);
+        if (t.isRed)
+        {
+            stim.GetComponent<Image>().color = Color.red;
+            instructionsText.text = INSTRUCTIONS_RED;
+        }
+        else{
+            stim.GetComponent<Image>().color = Color.white;
+
+            instructionsText.text = INSTRUCTIONS;
+        }
         stim.SetActive(true);
 
         yield return new WaitForSeconds(((ReactTrial)t).duration);

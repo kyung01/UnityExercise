@@ -12,7 +12,7 @@ using System.Collections.Generic;
 /// </summary>
 public class React : GameBase
 {
-	const string INSTRUCTIONS = "Press <color=cyan>Spacebar</color> as soon as you see the square.";
+	protected const string INSTRUCTIONS = "Press <color=cyan>Spacebar</color> as soon as you see the square.";
 	const string FINISHED = "FINISHED!";
 	const string RESPONSE_GUESS = "No Guessing!";
 	const string RESPONSE_CORRECT = "Good!";
