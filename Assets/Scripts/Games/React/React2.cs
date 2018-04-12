@@ -1,5 +1,4 @@
-﻿//stim.GetComponent<RectTransform>().localPosition = new Vector3(t.x, t.y,0);
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
